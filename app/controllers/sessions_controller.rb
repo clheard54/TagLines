@@ -1,17 +1,18 @@
 class SessionsController < ApplicationController
-    
-    def new
+    def index
     end
     
     def create
-        @user = User.find_by(name: params[:user][:name])
-        authenticated = @user.try(:authenticate, params[:user][:password])
-        if @user.authenticate(params[:password])
-            session[:user_id] = @user.id
-            redirect_to controller: 'users', action: 'show'
-        else
-            return head(:forbidden)
-            redirect_to controller: 'sessions', action: 'new'
-        end
+      user = User.find_by(user_name: params[:user][:user_name])
+      authenticated = user.try(:authenticate, params[:user][:password])
+      
+       if !authenticated
+        return redirect_to(controller: 'sessions', action: 'new')
+       else
+        @user = user
+        session[:user_id] = @user.id
+        
+        redirect_to '/'
+       end
     end
 end

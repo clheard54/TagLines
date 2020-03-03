@@ -1,7 +1,30 @@
-<h1>Welcome, <%=current_user.first_name%>!</h1>
+<h1>Welcome, <%=@user.first_name%>!</h1>
 
 <h2>Profile Information</h2>
+<fieldset>
+<legend><font size='5'>Biographic</font></legend>
+<p><b><font size='4'>First Name: </font></b> <%=@user.first_name %></p>
+<p><b><font size='4'>Last Name: </font></b> <%=@user.last_name %></p>
+<p><b><font size='4'>Email Address: </font></b> <%=@user.email %></p>
+</fieldset>
+<br>
+<fieldset>
+<legend><font size='5'>TagLine Deets</font></legend>
+<p><b><font size='4'>User Name: </font></b> <%=@user.user_name %></p>
+<p><b><font size='4'>Fave Book:</font></b> 
+  <% if @user.fave_book %>
+    <%=link_to @user.fave_book, book_path(@user.fave_book) %></p>
+  <% else %>
+    Alas, you have yet to pick one.</p>
+    <% end %>
+    <p><b><font size='4'>Fave MoviesHelper:</font></b> 
+  <% if @user.fave_movie %>
+    <%=link_to @user.fave_movie, movie_path(@user.fave_movie) %></p>
+  <% else %>
+    No favorite movie designated yet.</p>
+    <% end %>
 
-<div>
-  
-</div>
+<br><br>
+
+
+<%= button_to 'Edit your Info', edit_user_path(@user) %>

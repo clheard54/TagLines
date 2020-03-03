@@ -1,0 +1,21 @@
+<h1>Edit a Favorite Quote!</h1>
+
+<%= form_for @quote do |f| %>
+    <label>Where is this quote from?</label>
+    <%=f.text_field :title, value= @quote.title %>
+    <fieldset>
+    <legend><font size='4'>"Let's Make Some Changes"</font></legend>
+    <p><label><font size='4'>What is the beloved quote?</font></</label>
+    <%=f.text_area :quote %></p>
+
+    <p><label><font size='4'>Need to add/change some notes?</font></label>
+    <%=f.text_area :notes %></p>
+
+    <p><label><font size='4'>Any Tag Changes?</font></label>
+    <%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
+
+    <%=f.hidden_field :user_id, value = session[:user_id] %>
+
+    &emsp;&emsp;<%= f.submit "Edit!" %>
+
+<% end %>

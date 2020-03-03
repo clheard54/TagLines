@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+    before_action :require_logged_in, only: [:new1, :create1, :newbook, :newmovie, :create2, :edit]
+
   def index
     @quotes = Quote.all
   end
@@ -28,6 +30,11 @@ class QuotesController < ApplicationController
   def create2
     byebug
     @quote = Quote.create(quote_params)
+    if @quote.book_id
+        @quote.title = Book.find(@quote.book_id).title
+    elsif @quote.movie_id
+        @quote.title = Movie.find(@quote.movie_id).title
+    end
   end
 
   def show
@@ -50,7 +57,7 @@ class QuotesController < ApplicationController
 
 private
   def quote_params
-    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :book?, tag_ids: [], tags_attributes => [:name],:books_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])))
+    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :book?, tag_ids: [], tags_attributes => [:name],:books_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])
   end
   
 end

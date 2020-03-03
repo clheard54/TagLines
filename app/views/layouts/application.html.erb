@@ -7,9 +7,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .warning {
+        color: red;
+        font-weight: bold;
+        border: 1px, solid, red;
+        padding: 3px;
+      }
+
+      </style>
   </head>
 
   <body>
+  
     <%= yield %>
   </body>
 </html>

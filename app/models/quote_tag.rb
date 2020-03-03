@@ -1,4 +1,6 @@
 class QuoteTag < ApplicationRecord
+    belongs_to :quote
+    belongs_to :tag
     validates :book_id, presence:true, allow_nil: true 
     validates :movie_id, presence:true, allow_nil: true 
 

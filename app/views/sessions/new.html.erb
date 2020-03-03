@@ -1,12 +1,11 @@
 <h1>Login Page</h1>
 
-<%= form_for @user do |f| %>
-    <%=f.label :name %>
-    <%=f.text_field :name %>
+<%= form_for @user, controller: 'sessions', action: 'create' do |f|%>
+    <p><%=f.label :user_name %>
+    <%=f.text_field :user_name %></p>
 
-    <%=f.label :password %>
-    <%=f.password_field :password %>
+    <p><%=f.label :password %>
+    <%=f.password_field :password %></p>
 
-    <%= f.submit "Submit"%>
+    <%= f.submit "Log In"%>
 <% end %>
-

@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+    has_many :quotes
+    has_many :users, through: :quotes
     validates :title, presence:true, uniqueness:true
     accepts_nested_attributes_for :quotes
 

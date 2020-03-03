@@ -1,6 +1,6 @@
 <h1>Enter a New Favorite Quote!</h1>
 
-<%= form_for @quote do |f| %>
+<%= form_for @quote, controller:'users' action: 'create1' do |f| %>
     First thing's first: Is this quote from a book or a movie?
 <p><label>Book
    <input type="radio" name="book?" id="book?" value="true" />
