@@ -1,0 +1,7 @@
+<h1>Edit a Movie</h1>
+Found a mistake? Need to update a synopsis or add some cast members? No problem. Fill in the following form to submit an edit request.
+
+<%= render 'form' %>
+<%=form_for @movie do |f| %>
+    <%=f.submit "Make those Changes"%>
+    <% end %>

@@ -1,0 +1,33 @@
+<h1>All About <%=@movie.title%></h1>
+
+<div>
+Title: <%=@movie.title%>
+Director: <%=@movie.director%>
+&emsp;Synopsis: <%=@movie.director%>
+</div>
+<br>
+
+Your favorite line: 
+#put in quotes model
+<% if !current_user.movies || !current_user.movies.include?(@movie) %>
+    None yet entered. <br>
+    <%= button_to "Let's fix that!", 'quotes/new' %>
+<% elsif current_user.movies.include?(@movie) %>
+    <% favorite_line = Quote.find_by(user_id: current_user, movie_id: @movie.id) %>
+    <%= favorite_line %>
+    <%= button_to "Change/Edit/Update", 'quotes/edit/#{@movie.id}' %>
+<br>
+<% end %>
+
+<% lines = Quote.where(movie_id: @movie.id) %>
+<% if !lines.empty? %>
+    <% sample = lines.take(5) %>
+    Some other folks' favorites:
+<ul>
+    <% sample.each do |quote| %>
+    <%= quote.quote %>
+    <% end %>
+    </ul>
+<%end%>
+
+

@@ -1,0 +1,37 @@
+<h1>Enter a New Favorite Quote!</h1>
+
+<%= form_for @quote do |f| %>
+    <label>What book is this quote from?</label>
+    <%=f.collection_radio_buttons :book_id, Book.all, :id, :title %>
+    
+    <fieldset>
+    <legend><font size='4'>Need to Add a New Book?</font></legend>
+    <%=f.fields_for :book do |ff| %>
+        <p><font size='3'><b><%=ff.label :title %></b>
+        <%=ff.text_field :title %></p>
+
+        <p><font size='3'><b><%=ff.label :author %></b></font>
+        <%=ff.text_field :author %></p>
+
+        <p><font size='3'><b><%=ff.label :synopsis %></b></font>
+        <%=ff.text_area :synopsis %></p>
+        <%i +=1%>
+        <% end %>
+    </fieldset><br>
+
+    <fieldset>
+    <legend><font size='4'>What is the beloved quote?</font></legend>
+    <p><%=f.text_area :quote %></p>
+
+    <legend><font size='4'>Any other Notes to Add?</font></legend>
+    <p><%=f.text_area :notes %></p>
+
+    <p><label>Any Tags?</label></p>
+    <%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+
+    <%=f.hidden_field :user_id, value = session[:user_id] %>
+
+    &emsp;&emsp;<%= f.submit "Create!" %>
+
+<% end %>
+

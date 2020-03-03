@@ -1,0 +1,33 @@
+<h1>All About <%=@book.title%></h1>
+
+<div>
+Title: <%=@book.title%>
+Author: <%=@book.author%>
+&emsp;Synopsis: <%=@book.author%>
+</div>
+<br>
+
+Your favorite line: 
+#put in quotes model
+<% if !current_user.books || !current_user.books.include?(@book) %>
+    None yet entered. <br>
+    <%= button_to "Let's fix that!", 'quotes/new' %>
+<% elsif current_user.books.include?(@book) %>
+    <% favorite_line = Quote.find_by(user_id: current_user, book_id: @book.id) %>
+    <%= favorite_line %>
+    <%= button_to "Change/Edit/Update", 'quotes/edit/#{@book.id}' %>
+<br>
+<% end %>
+
+<% lines = Quote.where(book_id: @book.id) %>
+<% if !lines.empty? %>
+    <% sample = lines.take(5) %>
+    Some other folks' favorites:
+<ul>
+    <% sample.each do |quote| %>
+    <%= quote.quote %>
+    <% end %>
+    </ul>
+<%end%>
+
+

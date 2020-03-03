@@ -1,0 +1,25 @@
+<%= form_for @quote do |f| %>
+    First thing's first: Is this quote from a book or a movie?
+<p><label>Book
+   <input type="radio" name="book?" id="book?" value="true" />
+   </label>
+<label>Movie
+   <input type="radio" name="book?" id="book?" value="false" />
+</label></p>
+
+    <p><%=f.label :movie_title %>
+    <%=f.text_field :movie_title %></p><br>
+
+    <p><%=f.label :quote %>
+    <%=f.text_field :quote %><br></p><br>
+
+    <p><%=f.label :notes %>
+    <%=f.text_field :notes%></p><br>
+
+    <p><label>Any Tags?</label></p>
+    <%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+
+    <%=f.hidden_field :user_id, value=current_user %>
+
+    <%=f.submit "Woohoo! A favorite quote!" %>
+<% end %>

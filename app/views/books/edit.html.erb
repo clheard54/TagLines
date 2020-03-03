@@ -1,0 +1,7 @@
+<h1>Edit a Book</h1>
+Found a mistake? Need to update a synopsis? Fill in the following form to submit an edit request.
+
+<%= render 'form' %>
+<%=form_for @book do |f| %>
+    <%=f.submit "Make those Changes"%>
+    <% end %>

@@ -1,0 +1,2 @@
+module QuoteTagsHelper
+end

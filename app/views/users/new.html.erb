@@ -1,0 +1,21 @@
+<h1>Sign up</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+    <p>First Name: <%= f.text_field first_name %></p>
+    <p>Last Name: <%= f.text_field :last_name %></p>
+    <p>Email Address: <%= f.text_field :email %></p>
+    <br>
+
+    <p>Username: <%= f.text_field :user_name %></p>
+    <p>Password: <%= f.password_field :password %>
+    Password Confirmation: <%= f.password_field :password_confirmation %></p>
+    <br>
+
+    <p>Is it even possible? What is your favorite book? <%= f.text_field :fave_book %></p>
+    <p>Perhaps slightly less impossible... Can you pick your favorite movie? <%= f.text_field :fave_movie %></p>
+
+
+    <%= f.submit "Submit" %>
+   <% end %>
+   
