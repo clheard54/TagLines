@@ -31,11 +31,6 @@
 
     <label><font size='4'>Any Tags?</font></label>
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-    <label><font size='3'>Need to Make a New Tag?</font></label>
-    <%=f.fields_for :tag do |build_tag| %>
-        <p><font size='3'><%=build_tag.label :name %>
-        <%=build_tag.text_field :name %></p>
-        <% end %>
 
     &emsp;&emsp;<%= f.submit "Create!" %>
 

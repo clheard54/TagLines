@@ -34,20 +34,20 @@
             <li class="tm-nav-item current">
                 <a href="quotes" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
-                <span>My Quotes</span>
+                <span>Quotes</span>
                 </a>
             </li>
             
             <li class="tm-nav-item current">
                 <a href="books" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
-                <span>My Books</span>
+                <span>Books</span>
                 </a>
             </li>
             <li class="tm-nav-item current">
-                <a href="/logout" class="tm-nav-link current">
+                <a href="movies" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
-                <span>Logout</span>
+                <span>  Movies</span>
                 </a>
             </li>
           </ul>
@@ -56,3 +56,23 @@
     </div>
   </div>
 </header>
+
+
+  <body>
+    <section class="tm-mb-1" id="about">
+      <div class="tm-row tm-about-row">
+        <div class="tm-section-1-l">
+          <img src="https://storage.needpix.com/rsynced_images/books-2085587_1280.jpg" alt="Books!" class="tm-img-responsive">
+            <article class="tm-section-1-r tm-bg-color-8"> 
+              <h2 class="tm-mb-2 tm-title-color">Saving Sentences, Listing Lines</h2>
+                <div class='content'>
+                    <%= yield %>
+                </div>
+                <br>
+              <p>Words, words, words...</p>
+            </article>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

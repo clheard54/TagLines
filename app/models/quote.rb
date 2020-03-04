@@ -21,9 +21,9 @@ class Quote < ApplicationRecord
         end
     end
 
-    def tags_attributes=(tags_attributes)
-        tags_attributes.values.each do |tag_attributes|
-            self.tags.build(tag_attributes)
+    def quote_tags_attributes=(quote_tags_attributes)
+        quote_tags_attributes.values.each do |quote_tag_attributes|
+            self.quotetags.build(quote_tag_attributes)
         end
     end
 end

@@ -1,12 +1,14 @@
 <h1>Your Favorite Quotes</h1>
 
 <% if !@quotes %>
-    You have no favorite quotes yet. :o( <br>
+    <p>You have no favorite quotes yet. :o( </p><br>
     (But you could - and should - change that!)
-    <%=button_to "Add a Quote!", '/quotes/new' %>
+    <br>
+    <%=button_to "Add a Quote!", quotes_new_path %>
 <% else %>
+    <ol>
     <%= @quotes.each do |quote| %>
-        <%=quote.quote%>
+        <li><%=quote.quote%>
         <% if quote.book? %>
             source = Book.find(quote.book_id)
         <% else %>
@@ -16,6 +18,6 @@
         From <span class='title'><%=source.title%></span>
         <% if quote.author %>
             ~<%=quote.author%>
-        <%end%>
+        <%end%></li>
     <% end %>
 <% end %>
