@@ -1,8 +1,10 @@
 <h1>Enter a New Favorite Quote!</h1>
 
 <%= form_for @quote do |f| %>
+    <fieldset>
     <label>What movie is this quote from?</label>
-    <%=f.collection_radio_buttons :movie_id, Movie.all, :id, :title %>
+    <p><%=f.collection_radio_buttons :movie_id, Movie.all, :id, :title %></p>
+    </fieldset>
     
     <fieldset>
     <legend><font size='4'>Need to Add a New Movie?</font></legend>
@@ -28,8 +30,6 @@
 
     <label>Any Tags?</label>
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-
-    <%=f.hidden_field :user_id, value = session[:user_id] %>
 
     &emsp;&emsp;<%= f.submit "Create!" %>
 

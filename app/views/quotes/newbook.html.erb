@@ -1,11 +1,11 @@
 <h1>Enter a New Favorite Quote!</h1>
 
 <%= form_for @quote do |f| %>
-    <label>What book is this quote from?</label>
+    <label><font size='4'>What book is this quote from?</font></label>
     <%=f.collection_radio_buttons :book_id, Book.all, :id, :title %>
     
     <fieldset>
-    <legend><font size='4'>Need to Add a New Book?</font></legend>
+    <label><font size='4'>Need to Add a New Book?</font></label>
     <%=f.fields_for :book do |ff| %>
         <p><font size='3'><b><%=ff.label :title %></b>
         <%=ff.text_field :title %></p>
@@ -28,7 +28,6 @@
     <label>Any Tags?</label></p>
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
 
-    <%=f.hidden_field :user_id, value= session[:user_id] %>
 
     &emsp;&emsp;<%= f.submit "Create!" %>
 

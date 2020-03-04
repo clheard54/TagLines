@@ -9,32 +9,40 @@ class QuotesController < ApplicationController
     @quote = Quote.new
   end
 
-  def create1
+  def add
     if params[:book?] == 'true'
-        redirect_to controller: 'quotes', action: 'newbook'
+        @quote = Quote.new
+        @book = Book.new
+        @book.quotes << @quote
+        render 'quotes/newbook'
     else
-        redirect_to controller: 'quotes', action: 'newmovie'
+        @quote = Quote.new
+        @movie = Movie.new
+        @movie.quotes << @quote
+        render 'quotes/newmovie'
     end
   end
 
-  def newbook
-    @quote = Quote.new
-    @quote.book? == true
-  end
+#   def newbook
+#     @quote = Quote.new
+#     @quote.book? == true
+#   end
 
-  def newmovie
-    @quote = Quote.new
-    @quote.book? == false
-  end
+#   def newmovie
+#     @quote = Quote.new
+#     @quote.book? == false
+#   end
 
   def create2
-    byebug
     @quote = Quote.create(quote_params)
     if @quote.book_id
         @quote.title = Book.find(@quote.book_id).title
     elsif @quote.movie_id
         @quote.title = Movie.find(@quote.movie_id).title
     end
+    @quote.user_id = @user.id
+    @quote.save
+    
   end
 
   def show
@@ -56,8 +64,9 @@ class QuotesController < ApplicationController
   end
 
 private
+
   def quote_params
-    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :book?, tag_ids: [], tags_attributes => [:name],:books_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])
+    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :user_id, :book?, tag_ids: [], tags_attributes => [:name],:books_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])
   end
   
 end

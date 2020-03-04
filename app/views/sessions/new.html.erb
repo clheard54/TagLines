@@ -1,5 +1,7 @@
 <h1>Login Page</h1>
 
+<%=flash[:notice]%>
+
 <%= form_for @user, controller: 'sessions', action: 'create' do |f|%>
     <p><%=f.label :user_name %>
     <%=f.text_field :user_name %></p>
