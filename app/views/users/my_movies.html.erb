@@ -1,0 +1,11 @@
+<h1>My Movies</h1>
+<h3>A cinematic collection beyond compare!</h3>
+<br>
+<div>
+<ol>
+<% @movies.each do |movie| %>
+    <li><span class='title'><%=link_to movie.title, movie_path(movie) %></span><br>
+    &emsp; <%= movie.director %></li><br>
+    <%end%>
+</ol>
+</div>

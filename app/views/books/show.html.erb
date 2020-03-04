@@ -7,17 +7,18 @@ Author: <%=@book.author%>
 </div>
 <br>
 
-Your favorite line: 
-#put in quotes model
-<% if !current_user.books || !current_user.books.include?(@book) %>
-    None yet entered. <br>
-    <%= button_to "Let's fix that!", 'quotes/new' %>
-<% elsif current_user.books.include?(@book) %>
-    <% favorite_line = Quote.find_by(user_id: current_user, book_id: @book.id) %>
-    <%= favorite_line %>
-    <%= button_to "Change/Edit/Update", 'quotes/edit/#{@book.id}' %>
-<br>
-<% end %>
+    Your favorite line: 
+
+    <% if !@user.books || !@user.books.include?(@book) %>
+        None yet entered. <br>
+        <%= button_to "Let's fix that!", quotes_new_path, {method: 'get'} %>
+    <% elsif @user.books.include?(@book) %>
+        <% favorite_line = Quote.find_by(user_id: @user, book_id: @book.id) %>
+        <%= favorite_line %>
+        <%= button_to "Change/Edit/Update", 'quotes/edit/#{@book.id}' %>
+    <br>
+    <% end %>
+
 
 <% lines = Quote.where(book_id: @book.id) %>
 <% if !lines.empty? %>

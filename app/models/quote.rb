@@ -17,12 +17,12 @@ class Quote < ApplicationRecord
 
     def movies_attributes=(movies_attributes)
         movies_attributes.values.each do |movie_attributes|
-            self.movies.build(movie_attributes)
+            self.build_movie(movie_attributes)
         end
     end
 
     def tags_attributes=(tags_attributes)
-        tags_attributes.values.each do |tag|
+        tags_attributes.values.each do |tag_attributes|
             self.tags.build(tag_attributes)
         end
     end

@@ -8,12 +8,12 @@ Director: <%=@movie.director%>
 <br>
 
 Your favorite line: 
-#put in quotes model
-<% if !current_user.movies || !current_user.movies.include?(@movie) %>
+
+<% if !@user.movies || !@user.movies.include?(@movie) %>
     None yet entered. <br>
-    <%= button_to "Let's fix that!", 'quotes/new' %>
-<% elsif current_user.movies.include?(@movie) %>
-    <% favorite_line = Quote.find_by(user_id: current_user, movie_id: @movie.id) %>
+    <%= button_to "Let's fix that!", quotes_new_path, {method: 'get'} %>
+<% elsif @user.movies.include?(@movie) %>
+    <% favorite_line = Quote.find_by(user_id: @user, movie_id: @movie.id) %>
     <%= favorite_line %>
     <%= button_to "Change/Edit/Update", 'quotes/edit/#{@movie.id}' %>
 <br>

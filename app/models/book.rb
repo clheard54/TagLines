@@ -10,4 +10,5 @@ class Book < ApplicationRecord
             self.quotes.build(quote_attributes)
         end
     end
+
 end

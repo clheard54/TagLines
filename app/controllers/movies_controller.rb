@@ -1,6 +1,9 @@
 class MoviesController < ApplicationController
+  before_action :current_user, only: [:show, :edit, :udpate, :destroy]
+  
   def index
-    @movies = Movie.all
+    @user = current_user
+    @movies = @user.movies
   end
 
   def new

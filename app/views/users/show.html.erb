@@ -1,5 +1,6 @@
 <h1>Welcome, <%=@user.first_name%>!</h1>
 
+<div class='profile-box'>
 <h2>Profile Information</h2>
 <fieldset>
 <legend><font size='5'>Biographic</font></legend>
@@ -25,6 +26,18 @@
     <% end %>
 
 <br><br>
-
-
 <%= button_to 'Edit your Info', edit_user_path(@user) %>
+</div>
+
+<div class='scrolling-quote'>
+    <%= @user.quotes.sample %>
+</div>
+
+<div class='user-books'>
+  <%= button_to "See Your Book Quotes", user_quotes_path, method: :get %>
+</div>
+
+<div class='user-movies'>
+  <%= button_to "See Your Movie Quotes", user_quotes_path, method: :get%>
+</div>
+

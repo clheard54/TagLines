@@ -18,8 +18,64 @@
       </style>
   </head>
 
+  <header class='clearfix'>
+  <div class="container-fluid">
+      <div class="tm-site-header tm-mb-1">
+        <div class="tm-site-name-container tm-bg-color-1">
+          <h1 class="tm-text-white">TagLine</h1>
+        </div>
+        <div class="tm-nav-container tm-bg-color-8">
+          <nav class="tm-nav" id="tm-nav">
+            <ul>
+              <li class="tm-nav-item current">
+                <a href="#login" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>Login</span>
+                </a>
+              </li>
+              <li class="tm-nav-item current">
+                <a href="#users/new" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>Sign Up</span>
+                </a>
+              </li>
+              <li class="tm-nav-item current">
+                <a href="#books" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>Books</span>
+                </a>
+              </li>
+              <li class="tm-nav-item current">
+                <a href="#movies" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>Movies</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  </div>
+</header>
+
+
   <body>
-  
+  <section class="tm-mb-1" id="about">
+      <div class="tm-row tm-about-row">
+        <div class="tm-section-1-l">
+          <img src='./books.png' alt="Books!" class="tm-img-responsive"/>
+        </div>
+      </div>
+    </section>
+
+  <article class="tm-section-1-r tm-bg-color-8"> 
+  <h2 class="tm-mb-2 tm-title-color">Saving Sentences, Listing Lines</h2>
+  <p>
+  All the text about this website
+  </p>
+  </article>
+    <div class='content'>
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,11 +1,14 @@
 <h1>Enter a New Favorite Quote!</h1>
 
-<%= form_for @quote do |f| %>
-    <label><font size='4'>What book is this quote from?</font></label>
+<%= form_for @quote, url: "/quotes/newbook" do |f| %>
+    <fieldset>
+    <legend><font size='4'>The Honored Tome</font></legend>
+    <label><font size='3'>What book is this quote from?</font></label><br>
     <%=f.collection_radio_buttons :book_id, Book.all, :id, :title %>
+    </fieldset>
     
     <fieldset>
-    <label><font size='4'>Need to Add a New Book?</font></label>
+    <legend><font size='4'>Need to Add a New Book?</font></legend>
     <%=f.fields_for :book do |ff| %>
         <p><font size='3'><b><%=ff.label :title %></b>
         <%=ff.text_field :title %></p>
@@ -19,15 +22,20 @@
     </fieldset><br>
 
     <fieldset>
-    <label><font size='4'>What is the beloved quote?</font></label>
+    <legend><font size='4'>The Beloved Quotation</font></legend>
+    <label><font size='4'>What is this passage you want to immortalize?</font></label>
     <p><%=f.text_area :quote %></p>
 
     <label><font size='4'>Any other Notes to Add?</font></label>
     <p><%=f.text_area :notes %></p>
 
-    <label>Any Tags?</label></p>
+    <label><font size='4'>Any Tags?</font></label>
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-
+    <label><font size='3'>Need to Make a New Tag?</font></label>
+    <%=f.fields_for :tag do |build_tag| %>
+        <p><font size='3'><%=build_tag.label :name %>
+        <%=build_tag.text_field :name %></p>
+        <% end %>
 
     &emsp;&emsp;<%= f.submit "Create!" %>
 

@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 #     @users = User.all
 #   end
 
+  def user_quotes
+    @quotes = @user.quotes
+  end
+
   def new
     @user = User.new
   end
@@ -20,6 +24,7 @@ class UsersController < ApplicationController
             movie_obj = Movie.find_or_create_by(title: @user.fave_movie)
             @user.fave_movie = movie_obj
         end
+        @user.save
         session[:user_id] = user.id
         redirect_to user_path(@user)
     else
@@ -33,13 +38,23 @@ class UsersController < ApplicationController
     #This is a welcome page
   end
 
+  def my_books
+    @user = current_user
+    @books = @user.books
+  end
+
+  def my_movies
+    @user = current_user
+    @movies = @user.movies
+  end
+
   def edit
     @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
-    @user.update
+    @user.update(user_params)
     redirect_to @user
   end
 

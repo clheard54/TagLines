@@ -1,6 +1,13 @@
 class BooksController < ApplicationController
-  def index
+  before_action :current_user, only: [:show, :edit, :udpate, :destroy]
+
+  def index 
     @books = Book.all
+  end
+
+  def my_books
+    @user = current_user
+    @books = @user.books
   end
 
   def new

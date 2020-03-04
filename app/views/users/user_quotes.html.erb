@@ -1,0 +1,21 @@
+<h1>Your Favorite Quotes</h1>
+
+<% if !@quotes %>
+    You have no favorite quotes yet. :o( <br>
+    (But you could - and should - change that!)
+    <%=button_to "Add a Quote!", '/quotes/new' %>
+<% else %>
+    <%= @quotes.each do |quote| %>
+        <%=quote.quote%>
+        <% if quote.book? %>
+            source = Book.find(quote.book_id)
+        <% else %>
+            source = Movie.find(quote.movie_id)
+        <% end %>
+        <br>
+        From <span class='title'><%=source.title%></span>
+        <% if quote.author %>
+            ~<%=quote.author%>
+        <%end%>
+    <% end %>
+<% end %>
