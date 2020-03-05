@@ -67,3 +67,10 @@ Movie.create(title: "Gone with the Wind", director: "Victor Fleming", cast_membe
 # User.create(first_name: "Caroline", last_name: "Gilman", user_name: "carol555", email: "gilman54@aol.com", password: "yoyoyoyoyo", fave_book: '', fave_movie: '')
 # User.create(first_name: "Jenny", last_name: "Aguiar", user_name: "jaguar", email: "jag324@gmail.com", password: "324club", fave_book: '', fave_movie: '')
 
+Tag.create(name: "Sweet")
+Tag.create(name: "Wicked")
+Tag.create(name: "Love")
+Tag.create(name: "NoHate")
+Tag.create(name: "Crying")
+Tag.create(name: "Dying")
+Tag.create(name: "Best ever")

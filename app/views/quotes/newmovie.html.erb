@@ -1,15 +1,16 @@
-<h1>Enter a New Favorite Quote!</h1>
+<div class="spacer"><h1>Enter a New Favorite Quote!</h1></div>
 
 <%= form_for @quote, url: "/quotes/newmovie" do |f| %>
     <fieldset>
     <legend><font size='4'>The Cinematic Glory</font></legend>
-    <label>What movie is this quote from?</label>
+    <div class="facts"><label>What movie is this quote from?</label>
     <p><%=f.collection_radio_buttons :movie_id, Movie.all, :id, :title%>
+    </div>
     </fieldset>
     <br>
     <fieldset>
     <legend><font size='4'>Need to Add a New Movie?</font></legend>
-    <%=f.fields_for :movie do |ff| %>
+    <div class="facts"><%=f.fields_for :movie do |ff| %>
         <p><font size='3'><b><%=ff.label :title %></b>
         <%=ff.text_field :title %></p>
 
@@ -19,11 +20,12 @@
         <p><font size='3'><b><%=ff.label :cast_members %></b></font>
         <%=ff.text_area :cast_members %></p>
         <% end %>
+        </div>
     </fieldset><br>
 
     <fieldset>
     <legend><font size='4'>The Beloved Quotation</font></legend>
-    <label>What is the line from this movie that has won your heart?</label>
+    <div class="facts"><label>What is the line from this movie that has won your heart?</label>
     <p><%=f.text_area :quote %></p>
 
     <label>Any other Notes to Add?</label>
@@ -31,7 +33,7 @@
 
     <label>Any Tags?</label>
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-
+</div>
 </fieldset>
     &emsp;&emsp;<%= f.submit "Create!" %>
 

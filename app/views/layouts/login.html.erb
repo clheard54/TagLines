@@ -15,9 +15,33 @@
         padding: 3px;
       }
 
+      .facts {
+        padding: 10px;
+      }
+
+      .spacer {
+        padding: 10px;
+      }
+
+      .leftlist {
+        margin-left: 40px;
+      }
+
+      .quotetext {
+        ;
+        line-height: 1.6;
+      }
+
+      .cite {
+        font-style: oblique;
+      }
+
       </style>
   </head>
 
+  <body>
+ <div id="page-container">
+   <div id="content-wrap">
   <header class='clearfix'>
   <div class="container-fluid">
     <div class="tm-site-header tm-mb-1">
@@ -32,22 +56,22 @@
         <nav class="tm-nav" id="tm-nav">
           <ul>
             <li class="tm-nav-item current">
-                <a href=user_quotes_path class="tm-nav-link current">
-                <span class="tm-mb-a"></span>
-                <span>My Quotes</span>
-                </a>
+            <a href="quotes" class="tm-nav-link current">
+            <span class="tm-mb-a"></span>
+            <span>Quotes</span>
+            </a>
             </li>
             
             <li class="tm-nav-item current">
-                <a href=user_path(@user) class="tm-nav-link current">
+                <a href="books" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
-                <span>My Profile</span>
+                <span>Books</span>
                 </a>
             </li>
             <li class="tm-nav-item current">
-                <a href="/logout" class="tm-nav-link current">
+                <a href="movies" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
-                <span>Logout</span>
+                <span>  Movies</span>
                 </a>
             </li>
             <li class="tm-nav-item current">
@@ -62,4 +86,24 @@
     </div>
   </div>
 </header>
+
+
 <%= yield %>
+
+
+  </div>
+
+<footer>
+<div class="footer">
+  <div class="flex-container">
+    <div class='img-container' style="flex-basis: 54%">
+      <div style="flex-basis: 60%"><img src="https://blog.patrickrothfuss.com/wp-content/uploads/2017/11/BookWallPanorama-e1510155573613.jpg"  alt="scroll" height='60'></div>
+      <div style="width: 80px">A room without books is like a body without a soul.</div>
+      </div>
+    <div style="flex-basis: 19%">Doubtfully copyrighted</div>
+    <div style="flex-basis: 19%">Books are better than movies</div>
+  </div>
+</div>
+</footer>
+</div>
+</body>

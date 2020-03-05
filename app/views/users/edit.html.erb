@@ -16,7 +16,7 @@
     <%= f.collection_select :fave_book, Book.all, :id, :title %></p>
   
     <p><font size='4'><%= f.label :fave_movie %></font>
-    <%= f.collection_select :fave_book, Book.all, :id, :title %></p>
+    <%= f.collection_select :fave_movie, Movie.all, :id, :title %></p>
   
     <%= f.submit "Update" %>
       <% end %>

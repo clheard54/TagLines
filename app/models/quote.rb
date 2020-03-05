@@ -8,6 +8,10 @@ class Quote < ApplicationRecord
     accepts_nested_attributes_for :book
     accepts_nested_attributes_for :movie
     accepts_nested_attributes_for :tags
+    validates :book_id, presence:true, allow_nil: true 
+    validates :movie_id, presence:true, allow_nil: true 
+
+    validate :book_id_xor_movie_id
 
     def books_attributes=(books_attributes)
         books_attributes.values.each do |book_attributes|
@@ -26,4 +30,30 @@ class Quote < ApplicationRecord
             self.quotetags.build(quote_tag_attributes)
         end
     end
+
+    def self.filter(search)
+        result = []
+        if search
+            tag = Tag.find_by(name: search)
+            if tag
+              self.each {|quote|
+                if quote.tags.include?(tag)
+                    result << quote
+                end
+                }
+            else Quote.all
+            end
+        else
+            Quote.all
+        end
+    end
+
+  private
+
+  def book_id_xor_movie_id
+    unless book.blank? ^ movie.blank?
+      errors.add(:base, "Please specify a book or a movie, but not both")
+    end
+  end
+
 end

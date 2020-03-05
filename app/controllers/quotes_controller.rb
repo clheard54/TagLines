@@ -1,8 +1,9 @@
 class QuotesController < ApplicationController
-    before_action :authorized, only: [:new1, :create1, :newbook, :newmovie, :create2, :edit]
+    before_action :authorized, only: [:new1, :add, :create2, :edit]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.filter(params[:search_tag])
+    render :layout => "allquotes"
   end
 
   def user_quotes
@@ -27,15 +28,6 @@ class QuotesController < ApplicationController
     end
   end
 
-#   def newbook
-#     @quote = Quote.new
-#     @quote.book? == true
-#   end
-
-#   def newmovie
-#     @quote = Quote.new
-#     @quote.book? == false
-#   end
 
   def create2
     @quote = Quote.new
@@ -71,7 +63,7 @@ class QuotesController < ApplicationController
 private
 
   def quote_params
-    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :user_id, :book?, tag_ids: [], :book_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])
+    params.require(:quote).permit(:quote, :notes, :movie_id, :book_id, :user_id, :search_tag, :book?, tag_ids: [], :book_attributes => [:title, :author, :synopsis], :movies_attributes => [:title, :director, :cast_members])
   end
   
 end

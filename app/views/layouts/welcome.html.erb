@@ -15,6 +15,10 @@
         padding: 3px;
       }
 
+      .leftlist {
+        margin-left: 40px;
+      }
+      
       </style>
   </head>
 
@@ -32,7 +36,7 @@
         <nav class="tm-nav" id="tm-nav">
           <ul>
             <li class="tm-nav-item current">
-                <a href="quotes" class="tm-nav-link current">
+                <a href="/quotes" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
                 <span>Quotes</span>
                 </a>
@@ -45,7 +49,7 @@
                 </a>
             </li>
             <li class="tm-nav-item current">
-                <a href="movies" class="tm-nav-link current">
+                <a href="/movies" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
                 <span>  Movies</span>
                 </a>
@@ -64,7 +68,10 @@
 </header>
 
 
-  <body>
+<body>
+ <div id="page-container">
+   <div id="content-wrap">
+
     <section class="tm-mb-1" id="about">
       <div class="tm-row tm-about-row">
         <div class="tm-section-1-l">
@@ -73,6 +80,7 @@
               <h2 class="tm-mb-2 tm-title-color">Saving Sentences, Listing Lines</h2>
                 <div class='content'>
                     <%= yield %>
+
                 </div>
                 <br>
               <p>Words, words, words...</p>
@@ -80,5 +88,20 @@
         </div>
       </div>
     </section>
+    </div>
+
+  <footer>
+  <div class="footer">
+    <div class="flex-container">
+      <div class='img-container' style="flex-basis:54%">
+        <div style="flex-basis: 60%"><img src="https://blog.patrickrothfuss.com/wp-content/uploads/2017/11/BookWallPanorama-e1510155573613.jpg"  alt="scroll" height='60'></div>
+        <div style="flex-basis: 25%">A room without books is like a body without a soul.</div>
+        </div>
+      <div style="flex-basis: 19%">Doubtfully copyrighted</div>
+      <div style="flex-basis: 19%">Books are better than movies</div>
+    </div>
+  </div>
+  </footer>
+  </div>
   </body>
 </html>

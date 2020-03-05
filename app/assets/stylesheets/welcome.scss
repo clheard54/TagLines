@@ -5,6 +5,20 @@
   outline: none;
 }
 
+.filtersearch {
+  position: absolute;
+  margin-bottom: 10px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
 ul, h1, h2, h3, h4, p, figure {
     padding: 0;
     margin: 0;
@@ -212,7 +226,7 @@ h1, h2, h3, h4, h5, h6 { color: #333; }
 
 .tm-btn:hover {
   color: white;
-  background-color: #875959;
+  background-color: #81d567;
 }
 
 .tm-social-row { padding: 70px; }
@@ -265,59 +279,7 @@ h1, h2, h3, h4, h5, h6 { color: #333; }
   content: "";
 }
 
-/* Gallery */
-.tm-gallery-header { padding: 40px 40px 30px; }
-.text-right { text-align: right; }
 
-.tm-gallery-filter {
-  text-align: center;
-  list-style: none;
-}
-
-.tm-gallery-filter > li { display: inline-block; }
-
-.tm-gallery-filter > li > a {
-  display: block;
-  margin: 5px;
-  color: #333;
-}
-
-.tm-gallery-filter > li > a.active,
-.tm-gallery-filter > li > a:hover {
-  color: #fff;
-}
-
-.tm-gallery-section { padding-bottom: 40px; }
-
-.tm-gallery-outer {
-  margin-left: -10px;
-  margin-right: -10px;
-  background-color: white;
-}
-
-.tm-gallery {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 0 auto 0;  
-  max-width: 1225px;  
-}
-
-.tm-gallery-item { 
-  padding: 10px; 
-  width: 20%;
-}
-
-@media (max-width: 1200px) {
-  .tm-gallery { max-width: 1200px; }
-  .tm-gallery-item {
-    width: 25%;    
-  }
-}
-
-/* 
-  Gallery Item Hover Effect
-  https://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/
-*/
 
 /* Common style */
 .tm-gallery-item figure {
@@ -391,81 +353,6 @@ h1, h2, h3, h4, h5, h6 { color: #333; }
   font-size: 68.5%;
 }
 
-/*---------------*/
-/***** Bubba *****/
-/*---------------*/
-
-figure.effect-bubba { background: #9e5406; }
-
-figure.effect-bubba img {
-  opacity: 1;
-  -webkit-transition: opacity 0.35s;
-  transition: opacity 0.35s;
-}
-
-figure.effect-bubba:hover img { opacity: 0.4; }
-
-figure.effect-bubba figcaption::before,
-figure.effect-bubba figcaption::after {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  content: "";
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-}
-
-figure.effect-bubba figcaption::before {
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  -webkit-transform: scale(0, 1);
-  transform: scale(0, 1);
-}
-
-figure.effect-bubba figcaption::after {
-  border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
-  -webkit-transform: scale(1, 0);
-  transform: scale(1, 0);
-}
-
-figure.effect-bubba h2 {
-  font-size: 1.5rem;
-  padding-top: 20%;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-  -webkit-transform: translate3d(0, -20px, 0);
-  transform: translate3d(0, -20px, 0);
-}
-
-figure.effect-bubba p {
-  color: white;
-  width: 100%;
-  padding: 10px;
-  opacity: 0;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(0, 20px, 0);
-  transform: translate3d(0, 20px, 0);
-}
-
-figure.effect-bubba:hover figcaption::before,
-figure.effect-bubba:hover figcaption::after {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-figure.effect-bubba:hover h2,
-figure.effect-bubba:hover p {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
 
 @media (max-width: 900px) {
   .tm-gallery { max-width: 900px; }
@@ -584,34 +471,17 @@ button:hover { cursor: pointer; }
     flex-direction: column;
   }
 
-  .tm-social-row { padding: 70px 30px; }
-}
-
+  
   .tm-about-row,
   .tm-services-row {
     flex-direction: column;
   }
 
-  .tm-social-row { padding: 70px 30px; }
-}
-
-@media (max-width: 800px) {
-  .tm-social-row { flex-direction: column; }
-  .tm-icon { width: 100%; }
-  .tm-icon-inner { padding: 30px; }
-}
+  
 
 @media (min-width: 1240px) {
   .tm-section-1-r { max-height: 700px; }
 }
-
-@media (max-width: 1145px) {
-  .map-outer,
-  .contact-form-outer,
-  .contact-info-outer {
-    width: 100%;  
-    padding: 0;  
-  }
 
   .map-outer,
   .contact-form-outer { margin-bottom: 20px; }
@@ -646,4 +516,97 @@ button:hover { cursor: pointer; }
 #button.show {
   opacity: 1;
   visibility: visible;
+}
+
+.full {
+  width: 100%;    
+}
+.gap {
+height: 30px;
+width: 100%;
+clear: both;
+display: block;
+}
+
+
+.email{
+border-bottom: 3px solid #fff;
+}
+.footer ul li a {
+padding: 0 0 12px 0;
+display: block;
+}
+.footer a {
+color: white;
+font-weight: lighter;
+}
+
+.footer p {
+color: white;
+font-weight: lighter;
+font-size: 10px;
+}
+
+.footer a:hover {
+text-decoration:none;
+font-weight: bold;
+}
+.supportLi h4 {
+font-size: 20px;
+font-weight: lighter;
+line-height: normal;
+margin-bottom: 0 !important;
+padding-bottom: 0;
+}
+
+.bg-gray {
+background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+box-shadow: 0 1px 0 #B4B3B3;
+}
+
+}
+
+.footer { 
+  position: absolute; 
+  bottom: 0; 
+  width: 100%;
+  margin-top: 250px;
+} 
+
+.flex-container {
+  margin-top: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;;
+  background-color: rgb(41, 101, 203);
+}
+
+.flex-container > div {
+  background-color: rgb(54, 211, 231); 
+  color: white;
+  height: 75px;
+  margin: 10px;
+  text-align: center;
+  align-items: center;
+  line-height: 75px;
+  font-size: 10px;
+}
+
+.flex-container > .img-container {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(54, 211, 231); 
+  height: 75px;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.img-container > div {
+  padding-top: 35px;
+  margin: 10px;
+  align-items: center;
+  overflow: auto;
 }

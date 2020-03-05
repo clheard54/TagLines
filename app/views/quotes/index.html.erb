@@ -1,3 +1,38 @@
-<h1>All the Quotes</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TagLines</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+
+      .spacer {
+        padding: 10px;
+      }
+
+      .filtersearch {
+        position: absolute;
+        margin-bottom: 10px;
+      }
+      
+      </style>
+  </head>
+
+<div class="spacer"><h1>All the Quotes</h1></div>
+
 
 <%= render 'form' %>
+<br><br>
+
+<fieldset>
+<legend><b>Filter By Tag</b></legend>
+Select a tag from the dropdown to see all quotations marked by that tag.
+<%= form_tag(quotes_path, method: "get") do %>
+    <%= select_tag :search_tag, options_from_collection_for_select(Tag.all, :id, :name), include_blank: true%>
+    <%= submit_tag("Filter")%>
+    <%end%>
+</fieldset>
+</div>

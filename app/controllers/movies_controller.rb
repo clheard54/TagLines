@@ -2,8 +2,8 @@ class MoviesController < ApplicationController
   before_action :current_user, only: [:show, :edit, :udpate, :destroy]
   
   def index
-    @user = current_user
-    @movies = @user.movies
+    @movies = Movie.all
+    render :layout => "allmovies"
   end
 
   def new

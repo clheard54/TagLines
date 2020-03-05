@@ -1,34 +1,39 @@
-<h1>All About <%=@book.title%></h1>
+<div class="spacer"><h1>All About <%=@book.title.titlecase%></h1></div>
 
-<div>
-Title: <%=@book.title%>
-Author: <%=@book.author%>
-&emsp;Synopsis: <%=@book.author%>
-</div>
+<fieldset>
+<legend><font size='5'>Straight Up Facts</font></legend>
+<div class="facts"><b><font size='4'>Title: </font></b> <%=@book.title.titlecase%><br>
+<b><font size='4'>Author: </font></b> <%=@book.author%><br><br>
+<b><font size='4'>Synopsis: </font></b>
+<p>&emsp; <%=@book.synopsis%></p>
+</fieldset>
 <br>
+</div>
 
-    Your favorite line: 
+<fieldset>
+<legend><font size='5'>Quality Quotes</font></legend>
+<div class="facts"><b><font size='4'>Your favorite line: </b></font><br>
 
     <% if !@user.books || !@user.books.include?(@book) %>
-        None yet entered. <br>
+        <p>&emsp;None yet entered.</p> <br>
         <%= button_to "Let's fix that!", quotes_new_path, {method: 'get'} %>
     <% elsif @user.books.include?(@book) %>
         <% favorite_line = Quote.find_by(user_id: @user, book_id: @book.id) %>
-        <%= favorite_line %>
+        <p>&emsp;<%= favorite_line %></p> <br>
         <%= button_to "Change/Edit/Update", 'quotes/edit/#{@book.id}' %>
     <br>
     <% end %>
 
-
-<% lines = Quote.where(book_id: @book.id) %>
-<% if !lines.empty? %>
-    <% sample = lines.take(5) %>
-    Some other folks' favorites:
-<ul>
-    <% sample.each do |quote| %>
-    <%= quote.quote %>
-    <% end %>
-    </ul>
-<%end%>
-
+    <% lines = Quote.where(book_id: @book.id) %>
+    <% if !lines.empty? %>
+        <% sample = lines.take(5) %>
+        Some other folks' favorites:
+    <ul>
+        <% sample.each do |quote| %>
+        <%= quote.quote %>
+        <% end %>
+        </ul>
+    <%end%>
+    </div>
+</fieldset>
 

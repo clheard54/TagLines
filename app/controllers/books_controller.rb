@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def index 
     @books = Book.all
+    render :layout => "allbooks"
   end
 
   def my_books

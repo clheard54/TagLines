@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<div class="spacer"><h1>Sign up</h1></div>
 <% if flash[:notice] %>
 <h4>Womp womp...</h4>
 <% flash[:notice].each {|msg| %>
@@ -21,7 +21,9 @@
 
     <h3>It may be impossible but... </h3>
     <h5>What is your favorite book? <h5>
-    <p><%= f.text_field :fave_book %></p>
+  <br><%= f.text_field :fave_book %><br>
+    <h6>&emsp;&emsp;And who is the author of that book?</h6>
+    <br>&emsp;&emsp;<%=f.text_field :fave_author, required:true%>
     <h5>Can you do it? Can you pick one? How about your favorite movie?</h4>
       <p><%= f.text_field :fave_movie %></p>
 

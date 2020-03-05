@@ -1,15 +1,16 @@
-<h1>Enter a New Favorite Quote!</h1>
+<div class="spacer"><h1>Enter a New Favorite Quote!</h1></div>
 
 <%= form_for @quote, url: "/quotes/newbook" do |f| %>
     <fieldset>
     <legend><font size='4'>The Honored Tome</font></legend>
-    <label><font size='3'>What book is this quote from?</font></label><br>
+    <div class="facts"><label><font size='3'>What book is this quote from?</font></label><br>
     <%=f.collection_radio_buttons :book_id, Book.all, :id, :title %>
+    </div>
     </fieldset>
     
     <fieldset>
     <legend><font size='4'>Need to Add a New Book?</font></legend>
-    <%=f.fields_for :book do |ff| %>
+    <div class="facts"><%=f.fields_for :book do |ff| %>
         <p><font size='3'><b><%=ff.label :title %></b>
         <%=ff.text_field :title %></p>
 
@@ -19,11 +20,12 @@
         <p><font size='3'><b><%=ff.label :synopsis %></b></font>
         <%=ff.text_area :synopsis %></p>
         <% end %>
+        </div>
     </fieldset><br>
 
     <fieldset>
     <legend><font size='4'>The Beloved Quotation</font></legend>
-    <label><font size='4'>What is this passage you want to immortalize?</font></label>
+    <div class="facts"><label><font size='4'>What is this passage you want to immortalize?</font></label>
     <p><%=f.text_area :quote %></p>
 
     <label><font size='4'>Any other Notes to Add?</font></label>
@@ -33,6 +35,6 @@
     <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
 
     &emsp;&emsp;<%= f.submit "Create!" %>
-
+</div>
 <% end %>
 

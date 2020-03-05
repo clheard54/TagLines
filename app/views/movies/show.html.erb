@@ -1,24 +1,29 @@
-<h1>All About <%=@movie.title%></h1>
+<div class="spacer"><h1>All About <%=@movie.title%></h1></div>
 
-<div>
-Title: <%=@movie.title%>
-Director: <%=@movie.director%>
-&emsp;Synopsis: <%=@movie.director%>
+<fieldset>
+<legend><font size='5'>Straight Up Facts</font></legend>
+<div class="facts"><b><font size='4'>Title: </font></b> <%=@movie.title.titlecase%><br>
+<b><font size='4'>Author: </font></b> <%=@movie.director%><br><br>
+<b><font size='4'>Synopsis: </font></b>
+<p>&emsp; <%=@movie.synopsis%></p>
+</fieldset>
+<br>
 </div>
-<br>
 
-Your favorite line: 
+<fieldset>
+<legend><font size='5'>Quality Quotes</font></legend>
+<div class="facts"><p><b><font size='4'>Your favorite line: </b></font></p>
 
-<% if !@user.movies || !@user.movies.include?(@movie) %>
-    None yet entered. <br>
-    <%= button_to "Let's fix that!", quotes_new_path, {method: 'get'} %>
-<% elsif @user.movies.include?(@movie) %>
-    <% favorite_line = Quote.find_by(user_id: @user, movie_id: @movie.id) %>
-    <%= favorite_line %>
-    <%= button_to "Change/Edit/Update", 'quotes/edit/#{@movie.id}' %>
-<br>
-<% end %>
-
+    <% if !@user.movies || !@user.movies.include?(@movie) %>
+        <p>&emsp;None yet entered.</p> <br>
+        <%= button_to "Let's fix that!", quotes_new_path, {method: 'get'} %>
+    <% elsif @user.movies.include?(@movie) %>
+        <% favorite_line = Quote.find_by(user_id: @user, movie_id: @movie.id) %>
+        <p>&emsp;<%= favorite_line %></p> <br>
+        <%= button_to "Change/Edit/Update", 'quotes/edit/#{@movie.id}' %>
+    <br>
+    <% end %>
+\
 <% lines = Quote.where(movie_id: @movie.id) %>
 <% if !lines.empty? %>
     <% sample = lines.take(5) %>
@@ -29,5 +34,6 @@ Your favorite line:
     <% end %>
     </ul>
 <%end%>
-
+</div>
+</fieldset>
 

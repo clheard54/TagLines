@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => "sessions#create"
-  post '/logout' => "sessions#destroy"
+  delete '/logout' => "sessions#destroy"
   get '/logoutcheck' => "sessions#verify"
   post '/logoutcheck' => "sessions#destroy"
   # resources :quote_tags

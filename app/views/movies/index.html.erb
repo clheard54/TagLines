@@ -1,12 +1,16 @@
-<h1>All the Movies</h1>
-<h3>A cinematic goldmine!</h3>
+<div class="spacer"><h1>All the Movies</h1></div>
+
+<div class="leftlist"><h3>A cinematic goldmine!</h3></div>
+<br>
 <div>
-<ol>
 <% @movies.each do |movie| %>
-    <li><span class='title'><%=link_to movie.title, movie_path(movie) %></span><br>
+    <li><%=link_to movie.title, movie_path(movie) %><br>
     &emsp;Director: <%= movie.director %></li>
     &emsp;Cast Includes: <%= movie.cast_members %></li><br>
     <br>
     <%end%>
-</ol>
-</div>
+<br>
+<br>
+<br>
+<br>
+<div>

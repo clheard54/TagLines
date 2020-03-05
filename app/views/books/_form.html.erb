@@ -8,13 +8,14 @@
 
     <fieldset>
     <legend><font size='4'>Have a Favorite Quote to Add?</font></legend>
-    <%=f.fields_for :quote do |ff| %>
+    <div class="facts"><%=f.fields_for :quote do |ff| %>
         <p><font size='3'><b><%=ff.label :quote %></b>
         <%=ff.text_field :quote %></p>
 
         <p><font size='3'><b><%=ff.label :notes %></b></font>
         <%=ff.text_field :notes %></p>
         <% end %>
+        </div>
     </fieldset><br>
     <%= hidden_field value=sessions[user_id] %>
 

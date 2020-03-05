@@ -1,26 +1,28 @@
-<h1>Welcome, <%=@user.first_name%>!</h1>
+<div class="spacer"><h1>Welcome, <%=@user.first_name%>!</h1></div>
 
 <div class='profile-box'>
 <h2>Profile Information</h2>
 <fieldset>
 <legend><font size='5'>Biographic</font></legend>
-<p><b><font size='4'>First Name: </font></b> <%=@user.first_name %></p>
+<div class="facts"><p><b><font size='4'>First Name: </font></b> <%=@user.first_name %></p>
 <p><b><font size='4'>Last Name: </font></b> <%=@user.last_name %></p>
 <p><b><font size='4'>Email Address: </font></b> <%=@user.email %></p>
+</div>
 </fieldset>
 <br>
+
 <fieldset>
 <legend><font size='5'>TagLine Deets</font></legend>
-<p><b><font size='4'>User Name: </font></b> <%=@user.user_name %></p>
+<div class="facts"><p><b><font size='4'>User Name: </font></b> <%=@user.user_name %></p>
 <p><b><font size='4'>Fave Book: </font></b> 
-  <% if @user.fave_book %>
-    <%=link_to @user.fave_book.title, book_path(@user.fave_book) %></p>
+  <% if !@user.fave_book %>
+    <%=link_to @user.fave_book, book_path(Book.find_by(title: @user.fave_book)) %></p>
   <% else %>
     Alas, you have yet to pick one.</p>
     <% end %>
     <p><b><font size='4'>Fave Movie: </font></b> 
   <% if @user.fave_movie %>
-    <%=link_to @user.fave_movie.title, movie_path(@user.fave_movie) %></p>
+    <%=link_to @user.fave_movie, movie_path(Movie.find_by(title: @user.fave_movie) %></p>
   <% else %>
     No favorite movie designated yet.</p>
     <% end %>
@@ -29,6 +31,7 @@
     <%= link_to "My Favorite Quotes", user_quotes_path, method: :get %></p>
   <%= button_to 'Edit your Info', edit_user_path(@user), {:method=>'get'} %>
   <%=button_to "LOGOUT", '/logout', method: :delete %>
+  </div>
   </fieldset>
 
 <div class='scrolling-quote'>
@@ -41,6 +44,8 @@
 <% if @user == current_user %>
   <fieldset>
   <legend><b>Danger zone</b></legend>
+  <div class="facts">
   <%=button_to "DELETE User", '/users/delete', method: :delete %>
   <% end %>
+  </div>
   </fieldset>

@@ -4,17 +4,19 @@
     (But you could - and should - change that!)</p>
     <%=button_to "Add a Quote", 'quotes/new', method: 'get' %>
 <% else %> 
+<div class="leftlist">
+<ul>
     <%= @quotes.each do |quote| %>
-        <%=quote.quote%>
-        <% if quote.book? %>
-            source = Book.find(quote.book_id)
-        <% else %>
-            source = Movie.find(quote.movie_id)
+        <li><span class="quotetext"><%=quote.quote%>."</span><br>
+        <% if !!quote.book_id %>
+            &emsp;&emsp;&emsp;-- <span class="cite"><%= Book.find(quote.book_id).title%></span>
+
+        <% elsif !!quote.movie_id %>
+            &emsp;&emsp;&emsp;-- <span class="cite"><%= Movie.find(quote.movie_id).title %></span>
         <% end %>
+        </li>
         <br>
-        From <span class='title'><%=source.title%></span>
-        <% if quote.author %>
-            ~<%=quote.author%>
-        <%end%>
     <% end %>
+    </ul>
 <% end %>
+</div>
