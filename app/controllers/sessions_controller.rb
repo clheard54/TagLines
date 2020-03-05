@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
       render :layout => "welcome"
     end
 
+    def new
+      render :layout => "login"
+    end
+
     def create
       user = User.find_by(user_name: params[:user][:user_name])
       authenticated = user.try(:authenticate, params[:user][:password])

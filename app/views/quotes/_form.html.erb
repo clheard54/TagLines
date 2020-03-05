@@ -1,12 +1,20 @@
-<%= @quotes.each do |quote| %>
-    <%=quote.quote%>
-    <% if quote.book? %>
-        source = Book.find(quote.book_id)
-    <% else %>
-        source = Movie.find(quote.movie_id)
+
+<% if @quotes.empty? %>
+    <p>Oh no! No quotes entered yet. <br>
+    (But you could - and should - change that!)</p>
+    <%=button_to "Add a Quote", quotes_new_path %>
+<% else %> 
+    <%= @quotes.each do |quote| %>
+        <%=quote.quote%>
+        <% if quote.book? %>
+            source = Book.find(quote.book_id)
+        <% else %>
+            source = Movie.find(quote.movie_id)
+        <% end %>
+        <br>
+        From <span class='title'><%=source.title%></span>
+        <% if quote.author %>
+            ~<%=quote.author%>
+        <%end%>
     <% end %>
-    <br>
-     From <span class='title'><%=source.title%></span>
-    <% if quote.author %>
-        ~<%=quote.author%>
-    <%end%>
+<% end %>

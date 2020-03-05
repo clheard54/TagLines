@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :quotes, only: [:index, :show, :edit, :update, :delete]
   resources :tags
   resources :books
-  get 'users/:id/my_books', to: "users#my_books"
-  get 'users/:id/my_movies', to: "users#my_movies"
+  get 'users/:id/my_books', to: "users#my_books", as: "my_books"
+  get 'users/:id/my_movies', to: "users#my_movies", as: 'my_movies'
   resources :users
   resources :movies
 

@@ -16,13 +16,18 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save 
         @user = user
-        if @user.fave_book
+        
+        if !@user.fave_book.empty?
             book_obj = Book.find_or_create_by(title: @user.fave_book)
             @user.fave_book = book_obj
+        else
+           @user.fave_book = nil
         end
         if @user.fave_movie
             movie_obj = Movie.find_or_create_by(title: @user.fave_movie)
             @user.fave_movie = movie_obj
+        else
+          @user.fave_movie = movie_obj
         end
         @user.save
         session[:user_id] = user.id

@@ -1,13 +1,30 @@
-<h1>Login Page</h1>
+<body>
+  <section class="tm-mb-1" id="about">
+    <div class="tm-row tm-about-row">
+      <div class="tm-section-1-l">
+        <img src="https://storage.needpix.com/rsynced_images/books-2085587_1280.jpg" alt="Books!" class="tm-img-responsive">
+          <article class="tm-section-1-r tm-bg-color-8"> 
+            <h2 class="tm-mb-2 tm-title-color">Saving Sentences, Listing Lines</h2>
+              <div class='content'>
+              <h1>Login Page</h1>
 
-<%=flash[:notice]%>
+              <%=flash[:notice]%>
+              
+              <%= form_for @user, controller: 'sessions', action: 'create' do |f|%>
+                  <p><%=f.label :user_name %>
+                  <%=f.text_field :user_name %></p>
+              
+                  <p><%=f.label :password %>
+                  <%=f.password_field :password %></p>
+              
+                  <%= f.submit "Log In"%>
+              <% end %>
+              </div>
+              <br>
+          </article>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
 
-<%= form_for @user, controller: 'sessions', action: 'create' do |f|%>
-    <p><%=f.label :user_name %>
-    <%=f.text_field :user_name %></p>
-
-    <p><%=f.label :password %>
-    <%=f.password_field :password %></p>
-
-    <%= f.submit "Log In"%>
-<% end %>
