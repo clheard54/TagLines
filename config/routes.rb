@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => "sessions#create"
   post '/logout' => "sessions#destroy"
+  get '/logoutcheck' => "sessions#verify"
+  post '/logoutcheck' => "sessions#destroy"
   # resources :quote_tags
   get 'quotes/new', to: "quotes#new1"
   post 'quotes/new', to: "quotes#add"

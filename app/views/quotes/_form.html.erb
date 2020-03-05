@@ -2,7 +2,7 @@
 <% if @quotes.empty? %>
     <p>Oh no! No quotes entered yet. <br>
     (But you could - and should - change that!)</p>
-    <%=button_to "Add a Quote", quotes_new_path %>
+    <%=button_to "Add a Quote", 'quotes/new', method: 'get' %>
 <% else %> 
     <%= @quotes.each do |quote| %>
         <%=quote.quote%>

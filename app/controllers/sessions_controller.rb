@@ -21,6 +21,9 @@ class SessionsController < ApplicationController
        end
     end
 
+    def verify
+    end
+
     def destroy
       session.delete :user_id
       @user.delete

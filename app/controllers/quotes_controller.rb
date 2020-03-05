@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-    before_action :require_logged_in, only: [:new1, :create1, :newbook, :newmovie, :create2, :edit]
+    before_action :authorized, only: [:new1, :create1, :newbook, :newmovie, :create2, :edit]
 
   def index
     @quotes = Quote.all

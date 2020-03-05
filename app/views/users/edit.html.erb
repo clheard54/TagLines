@@ -3,7 +3,7 @@
     <%= f.text_field :first_name %></p>
   
     <p><font size='4'><%= f.label :last_name %></font>
-    <%= f.number_field :last_name %></p>
+    <%= f.text_field :last_name %></p>
   
     <p><font size='4'><%= f.label :email %></font>
     <%= f.text_field :email %></p>
@@ -11,12 +11,12 @@
     <p><font size='4'><%= f.label :user_name %></font>
     <%= f.text_field :user_name %></p>
     Apologies, you are not able to change your password at this time.
-
+<br>
     <p><font size='4'><%= f.label :fave_book %></font>
-    <%= f.number_field :fave_book %></p>
+    <%= f.collection_select :fave_book, Book.all, :id, :title %></p>
   
     <p><font size='4'><%= f.label :fave_movie %></font>
-    <%= f.number_field :fave_movie %></p>
+    <%= f.collection_select :fave_book, Book.all, :id, :title %></p>
   
     <%= f.submit "Update" %>
       <% end %>
