@@ -23,7 +23,7 @@
         <%= button_to "Change/Edit/Update", 'quotes/edit/#{@movie.id}' %>
     <br>
     <% end %>
-\
+
 <% lines = Quote.where(movie_id: @movie.id) %>
 <% if !lines.empty? %>
     <% sample = lines.take(5) %>

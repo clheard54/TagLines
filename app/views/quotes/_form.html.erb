@@ -6,7 +6,7 @@
 <% else %> 
 <div class="leftlist">
 <ul>
-    <%= @quotes.each do |quote| %>
+    <% @quotes.each do |quote| %>
         <li><span class="quotetext"><%=quote.quote%>."</span><br>
         <% if !!quote.book_id %>
             &emsp;&emsp;&emsp;-- <span class="cite"><%= Book.find(quote.book_id).title%></span>

@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
     before_action :authorized, only: [:new1, :add, :create2, :edit]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.filter(params[:search_tag])
     render :layout => "allquotes"
   end
 
@@ -38,6 +38,9 @@ class QuotesController < ApplicationController
       @quote.movie_id = params[:quote][:movie_id]
     end
     @quote.quote = params[:quote][:quote]
+    if QuoteTag.find_by(tag_id: params[:search_tag])
+      @quote.tags << QuoteTag.find_by(tag_id: params[:search_tag])
+    end
     @quote.save
     redirect_to quotes_path
   end
