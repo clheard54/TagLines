@@ -7,7 +7,7 @@
     <%=button_to "Add a Quote!", quotes_new_path, :method=>'get' %>
 <% else %>
     <ol>
-    <%= @quotes.each do |quote| %>
+    <% @quotes.each do |quote| %>
         <li><%=quote.quote%>
         <% if quote.book? %>
             source = Book.find(quote.book_id)

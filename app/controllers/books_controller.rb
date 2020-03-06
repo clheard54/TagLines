@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :current_user, only: [:show, :edit, :udpate, :destroy]
+  skip_before_action :authorized, only: [:index]
 
   def index 
     @books = Book.all

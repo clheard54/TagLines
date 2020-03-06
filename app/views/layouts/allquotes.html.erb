@@ -70,10 +70,17 @@
                 </a>
             </li>
             <li class="tm-nav-item current">
-              <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
-              <span class="tm-mb-a"></span>
-              <span>My Profile</span>  
-              </a>
+              <% if current_user %>
+                <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>My Profile</span>  
+                </a>
+              <% else %>
+                <a href= <%="http://localhost:3000/users/" %> class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>My Profile</span>  
+                </a>
+                <% end %>
             </li>
             <li class="tm-nav-item current">
             <a href="/" class="tm-nav-link current">

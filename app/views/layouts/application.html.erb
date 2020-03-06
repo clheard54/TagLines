@@ -37,8 +37,8 @@
         font-style: oblique;
       }
 
-      #callig {
-        flex-grow: 6;
+      .indent {
+        padding-left: 10px;
       }
 
       </style>
@@ -71,17 +71,31 @@
             </li>
 
             <li class="tm-nav-item current">
+              <% if current_user %>
                 <a href='/quotes/user_quotes' class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
                 <span>My Quotes</span>
                 </a>
+              <% else %>
+                <a href="http://localhost:3000/users/" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>My Quotes</span>
+                </a>
+              <% end %>
             </li>
             
             <li class="tm-nav-item current">
-              <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
-              <span class="tm-mb-a"></span>
-              <span>My Profile</span>  
-              </a>
+              <% if current_user %>
+                <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>My Profile</span>  
+                </a>
+              <% else %>
+                <a href= <%="http://localhost:3000/users/" %> class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>My Profile</span>  
+                </a>
+              <% end %>
             </li>
             <li class="tm-nav-item current">
             <a href="/" class="tm-nav-link current">

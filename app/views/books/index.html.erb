@@ -9,5 +9,8 @@
     &emsp; <%= book.author %></li><br>
     <%end%>
 </ol>
-<br><br><br><br>
+<br><br><br>
 </div>
+<fieldset>
+<%=button_to "Add a New Book", new_book_path, :method=>'get' %>
+</fieldset>

@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
-    before_action :authorized, only: [:new1, :add, :create2, :user_qutoes, :edit]
+    before_action :authorized, only: [:new1, :add, :create2, :user_quotes, :edit]
+  
 
   def index
     @quotes = Quote.filter(params[:search_tag])
@@ -41,7 +42,7 @@ class QuotesController < ApplicationController
     @quote.quote = params[:quote][:quote]
     @quote.save
     Tag.all.each {|tag|
-    byebug
+    
       if params[:quote][:quote_tags][:tag_ids].include?(tag.id.to_s)
         @quote.tags << tag
         QuoteTag.create(quote_id: @quote.id, tag_id: tag.id)

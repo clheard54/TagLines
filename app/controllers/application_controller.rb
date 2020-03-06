@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
   
     def login(user)
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
     end
 
     def current_user
-      @user = (User.find_by(id: session[:user_id]) || User.new)
+      @user = User.find_by(id: session[:user_id])
     end
   
     def logged_in?

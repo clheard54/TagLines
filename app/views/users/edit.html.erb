@@ -1,4 +1,9 @@
+<div class="spacer"><h1>Edit Your Info</h1></div>
+
 <%= form_for @user do |f| %>
+  <fieldset>
+  <p style='color:black; margin-bottom: 10px;'>Basic Info:</p>
+  <div class='indent'>
     <p><font size='4'><%= f.label :first_name %></font>
     <%= f.text_field :first_name %></p>
   
@@ -10,19 +15,25 @@
   
     <p><font size='4'><%= f.label :user_name %></font>
     <%= f.text_field :user_name %></p>
-    Apologies, you are not able to change your password at this time.
-<br>
-    <p><font size='4'><%= f.label :fave_book %></font>
-    <%= f.collection_select :fave_book, Book.all, :id, :title %></p>
+    </div>
+    <p style="color: black">Apologies, you are not able to change your password at this time.</p>
+
+    <div class='indent'>
+  <p style="margin-bottom: 7px;"><font size='4'><%= f.label :fave_book %></font>
+    <%= f.collection_select :fave_book, Book.all, :id, :title, include_blank:true  %></p>
+    &emsp;(If you need to add a new book, head to the <%=link_to "books page", books_path%> and scroll to the bottom.)
+      <br><br>
+    <p style="margin-bottom: 7px;"><font size='4'><%= f.label :fave_movie %></font>
+    <%= f.collection_select :fave_movie, Movie.all, :id, :title, include_blank:true %></p>
+    &emsp;(If you need to add a new movie, head to the <%=link_to "movies page", movies_path%> and scroll to the bottom.)
   
-    <p><font size='4'><%= f.label :fave_movie %></font>
-    <%= f.collection_select :fave_movie, Movie.all, :id, :title %></p>
-  
-    <%= f.submit "Update" %>
+    <p style='margin-top: 30px;'><%= f.submit "Update" %></p>
       <% end %>
+      </div>
   
     <% if flash[:notice] %>
       <% flash[:notice].each {|msg| %>
         <%= msg %>
       <% } %>
       <% end %>
+      </fieldset>

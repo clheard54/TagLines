@@ -35,15 +35,21 @@
     Alas, you have yet to pick one. </p>
   <% end %>
 
-    <p><b><font size='4'>See your Fave Quotes: </font></b> 
+    <p style="margin-bottom: 8px;"><b><font size='4'>See your Fave Quotes: </font></b> 
     <u><%= link_to "My Favorite Quotes", user_quotes_path, method: :get %></u></p>
+    <% if !@user.quotes.empty? %>
+      &emsp;To whet your appetite... : "<%= @user.quotes.sample.quote %>"
+    <% end %>
+    <br><br>
+    <br>
   <%= button_to 'Edit your Info', edit_user_path(@user), {:method=>'get'} %>
   <%=button_to "LOGOUT", '/logout', method: :delete %>
   </div>
   </fieldset>
 
+<br>
 <div class='scrolling-quote'>
-    <%= @user.quotes.sample %>
+
 </div>
 
 

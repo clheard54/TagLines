@@ -34,37 +34,30 @@ When you first enter the site, you will be asked to sign up or login. On your fi
 ## Preview
 Home Screen
 <br /> 
-<img src="./images/homescreen.png" width="600">
+<img src="./images/homepage.png" width="600">
 
-Log-In Menu for Returning Players
+Profile Page for Returning User
 <br /> 
-<img src="./images/mainmenu.png" width="600">
+<img src="./images/profile.png" width="600">
 
-Category Selection
+List of Quotes
 <br /> 
-<img src="./images/selectq.png" width="600">
+<img src="./images/quotes.png" width="600">
 
-Celebration for a Correct Answer
+Adding to Database View
 <br /> 
-<img src="./images/winning.png" width="600">
-
-Player's Statistics Page
-<br /> 
-<img src="./images/stats.png" width="600">
+<img src="./images/addquote.png" width="600">
 
 ## Credits
 
 Thank you to...
 
-... the <a href="https://opentdb.com/api_config.php">Open Trivia DB</a>, which provided all the questions!
+... <a href="https://templatemo.com/tm-544-comparto">TemplateMo</a>, which provided a basic CSS template framework.
 
-... Piotr Murach for his gem <a href="https://github.com/piotrmurach/tty-prompt">TTY-prompt</a>
+... Patrick Rothfuss, for use of his <a href="https://blog.patrickrothfuss.com/wp-content/uploads/2017/11/BookWallPanorama-e1510155573613.jpg">library photograph.</a>
 
-... Michael Tierney for the gem <a href="https://github.com/miketierney/artii">artii</a>
+... <a href="needpix.com">NeedPix</a>, for <a href="https://storage.needpix.com/rsynced_images/books-2085587_1280.jpg">this</a> beautiful photograph.
 
-... Francisco Juan for the gem <a href="https://github.com/fjuan/activerecord_reset_pk_sequence">reset-pk-sequence</a>
-
-... Chris Wanstrath for the gem <a href="https://github.com/defunkt/colored">colored</a>
 
 ## Contributing
 

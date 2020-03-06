@@ -5,7 +5,7 @@
     (But you could - and should - change that!)</p>
     <%=button_to "Add a Quote!", quotes_new_path, :method=>'get' %>
 <% else %>
-    <%= current_user.quotes.each do |quote| %>
+    <% current_user.quotes.each do |quote| %>
         <li><span class="quotetext"><%=quote.quote%>."</span><br>
         <% if !!quote.book_id %>
         &emsp;&emsp;&emsp;-- <span class="cite"><%= Book.find(quote.book_id).title%></span>

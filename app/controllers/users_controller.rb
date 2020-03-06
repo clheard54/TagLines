@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-    before_action :authorized, only: [:show, :edit, :update, :delete]
+    before_action :authorized, only: [:index, :show, :edit, :update, :delete]
+
+  def index
+  end
 
   def user_quotes
     @quotes = @user.quotes

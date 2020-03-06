@@ -1,0 +1,4 @@
+<% unless logged_in? %>
+    <%flash[:notice] = "You must be logged in to see this page"%>
+    <% redirect_to login_path %>
+    <% end %>
