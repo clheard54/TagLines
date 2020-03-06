@@ -32,8 +32,9 @@
     <p><%=f.text_area :notes %></p>
 
     <label><font size='4'>Any Tags?</font></label>
-    <%=f.fields_for :tags do |ff| %>
+    <%=f.fields_for :quote_tags do |ff| %>
         <p><%=ff.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
+        <%= ff.hidden_field :user_id => current_user.id %>
         <% end %>
     </fieldset><br>
     
