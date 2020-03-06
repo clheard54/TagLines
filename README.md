@@ -38,15 +38,15 @@ When you first enter the site, you will be asked to sign up or login. On your fi
 
 ## Preview
 
-<b>Profile Page for Returning User</b>
-<br><br> 
-<img src="./images/profile.png" width="600">
+<b>Profile Page for Returning User:</b>
+<br />
+<img style="align: center;" src="./images/profile.png" width="600">
 <br><br>
-<b>List of Quotes</b>
-<br /> <br>
+<b>List of Quotes:</b>
+<br />
 <img src="./images/quotes.png" width="600">
 <br><br>
-<b>Adding to Database View</b>
+<b>Adding to Database View:</b>
 <br /> <br>
 <img src="./images/addquote.png" width="600">
 <br><br>
@@ -58,15 +58,15 @@ Two bits of code that were fun/challenging to write -- and which I'd still like 
 1. I ran into difficulties writing a single form to handle the creation of a quotation - since a quote could belong to either a book or a movie, but not both. The params passed back from the form would be different based on the quote's source, and so it seemed like my code would need to diverge to accommodate the two possibilities. A workaround (that is not the most elegant, and I hope to improve) involved first requiring the user to pick a source.
 <br />
 <img src="./images/codesnip1.png" width="500">
-<br>
+<br />
 Depending on the selection, they were directed to two different versions of the "New Quote" form.
-<br>
+<br />
 <img src="./images/codesnip1.png" width="500">
-<br><br>
+<br />
 2. Slightly more satisfying was my solution to filtering quotations by tag. Writing a class method for Quotes - that would redefine/limit @quotes based on the selected tag - allowed me to render the same index page no matter whether there was a filter or not.
 <br />
 <img src="./images/code3.png" width="500">
-<br>
+<br />>
 
 ## Credits
 
