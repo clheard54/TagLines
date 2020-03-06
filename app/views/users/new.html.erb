@@ -1,4 +1,4 @@
-<div class="spacer"><h1>Sign up</h1></div>
+<div class="spacer"><h1>Sign up & Join TagLine</h1></div>
 <% if flash[:notice] %>
 <h4>Womp womp...</h4>
 <% flash[:notice].each {|msg| %>
@@ -6,7 +6,8 @@
 <% } %>
 <br>
 <% end %>
-
+<fieldset>
+<legend><font size='4'>Give me the Deets</font></legend>
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
 
     <p>First Name: <%= f.text_field :first_name %></p>
@@ -22,8 +23,7 @@
     <h3>It may be impossible but... </h3>
     <h5>What is your favorite book? <h5>
   <br><%= f.text_field :fave_book %><br>
-    <h6>&emsp;&emsp;And who is the author of that book?</h6>
-    <br>&emsp;&emsp;<%=f.text_field :fave_author, required:true%>
+
     <h5>Can you do it? Can you pick one? How about your favorite movie?</h4>
       <p><%= f.text_field :fave_movie %></p>
 

@@ -393,7 +393,7 @@ h1, h2, h3, h4, h5, h6 { color: #333; }
 }
 
 a { color: #666; }
-a:hover { color: #CC9999; }
+a:hover { color: rgb(15, 208, 95); }
 button:hover { cursor: pointer; }
 
 .tm-social-link {
@@ -567,14 +567,14 @@ box-shadow: 0 1px 0 #B4B3B3;
 }
 
 .footer { 
-  position: absolute; 
+  position: sticky; 
   bottom: 0; 
   width: 100%;
-  margin-top: 250px;
 } 
 
 .flex-container {
-  margin-top: 400px;
+  position: sticky;
+  bottom: 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -605,8 +605,10 @@ box-shadow: 0 1px 0 #B4B3B3;
 }
 
 .img-container > div {
-  padding-top: 35px;
+  line-height: 16px;
   margin: 10px;
+  padding-top: 6px;
+  height: 75px;
   align-items: center;
   overflow: auto;
 }

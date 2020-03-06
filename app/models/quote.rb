@@ -1,6 +1,6 @@
 class Quote < ApplicationRecord
-    has_many :quotetags
-    has_many :tags, through: :quotetags
+    has_many :quote_tags
+    has_many :tags, through: :quote_tags
     belongs_to :user
     belongs_to :book, optional: true
     belongs_to :movie, optional:true
@@ -25,9 +25,10 @@ class Quote < ApplicationRecord
         end
     end
 
-    def quote_tags_attributes=(quote_tags_attributes)
-        quote_tags_attributes.values.each do |quote_tag_attributes|
-            self.quotetags.build(quote_tag_attributes)
+    def tags_attributes=(tags_attributes)
+        tags_attributes.values.each do |tag_attributes|
+            tag = Tag.create(tag_attributes)
+            self.tags << tag
         end
     end
 

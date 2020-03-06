@@ -21,6 +21,7 @@
 
       .spacer {
         padding: 10px;
+        margin-bottom: 10px
       }
 
       .leftlist {
@@ -56,7 +57,19 @@
     <div class="tm-nav-container tm-bg-color-8">
         <nav class="tm-nav" id="tm-nav">
           <ul>
-           
+            <li class="tm-nav-item current">
+              <a href="/books" class="tm-nav-link current">
+              <span class="tm-mb-a"></span>
+              <span>Books</span>
+              </a>
+            </li>
+            <li class="tm-nav-item current">
+                <a href="/movies" class="tm-nav-link current">
+                <span class="tm-mb-a"></span>
+                <span>  Movies</span>
+                </a>
+            </li>
+            
             <li class="tm-nav-item current">
                 <a href='/quotes/user_quotes' class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
@@ -65,10 +78,10 @@
             </li>
             
             <li class="tm-nav-item current">
-                <a href=current_user class="tm-nav-link current">
-                  <span class="tm-mb-a"></span>
-                  <span>My Profile</span>  
-                </a>
+              <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
+              <span class="tm-mb-a"></span>
+              <span>My Profile</span>  
+              </a>
             </li>
             <li class="tm-nav-item current">
               <a href="/logoutcheck" class='tm-nav-link current'>
@@ -76,12 +89,7 @@
                 <span>Logout</span>
                 </a>
             </li>
-            <li class="tm-nav-item current">
-                <a href="/" class="tm-nav-link current">
-                <span class="tm-mb-a"></span>
-                <span>Home</span>
-                </a>
-            </li>
+            
           </ul>
         </nav>
       </div>
@@ -103,7 +111,7 @@
   <div class="flex-container">
     <div class='img-container' style="flex-basis: 54%">
       <div style="flex-basis: 60%"><img src="https://blog.patrickrothfuss.com/wp-content/uploads/2017/11/BookWallPanorama-e1510155573613.jpg"  alt="scroll" height='60'></div>
-      <div>A room without books is like a body without a soul.</div>
+      <div style="flex-basis: 22%; height: 75px; margin-top: 30px">A room without books is like a body without a soul.</div>
       </div>
     <div style="flex-basis: 19%">Doubtfully copyrighted</div>
     <div style="flex-basis: 19%">Books are better than movies</div>

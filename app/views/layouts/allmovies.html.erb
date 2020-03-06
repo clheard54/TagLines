@@ -53,24 +53,24 @@
         <nav class="tm-nav" id="tm-nav">
           <ul>
             <li class="tm-nav-item current">
-            <a href="quotes" class="tm-nav-link current">
+            <a href="/quotes" class="tm-nav-link current">
             <span class="tm-mb-a"></span>
             <span>Quotes</span>
             </a>
             </li>
             
             <li class="tm-nav-item current">
-                <a href="books" class="tm-nav-link current">
+                <a href="/books" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
                 <span>Books</span>
                 </a>
             </li>
             <li class="tm-nav-item current">
-            <a href="/logoutcheck" class='tm-nav-link current'>
+              <a href= <%="http://localhost:3000/users/#{current_user.id}" %> class="tm-nav-link current">
               <span class="tm-mb-a"></span>
-              <span>Logout</span>
+              <span>My Profile</span>  
               </a>
-          </li>
+            </li>
             <li class="tm-nav-item current">
                 <a href="/" class="tm-nav-link current">
                 <span class="tm-mb-a"></span>
@@ -98,7 +98,7 @@
   <div class="flex-container">
     <div class='img-container' style="flex-basis: 54%">
       <div style="flex-basis: 60%"><img src="https://blog.patrickrothfuss.com/wp-content/uploads/2017/11/BookWallPanorama-e1510155573613.jpg"  alt="scroll" height='60'></div>
-      <div style="width: 80px">A room without books is like a body without a soul.</div>
+      <div style="flex-basis: 22%; height: 75px, margin-top:30px">A room without books is like a body without a soul.</div>
       </div>
     <div style="flex-basis: 19%">Doubtfully copyrighted</div>
     <div style="flex-basis: 19%">Books are better than movies</div>

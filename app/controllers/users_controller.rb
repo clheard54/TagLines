@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save 
         session[:user_id] = user.id
+        @user = current_user
         redirect_to user_path(@user)
     else
         flash[:notice] = user.errors.full_messages
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #This is a welcome page
   end
 
   def my_books

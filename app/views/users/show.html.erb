@@ -1,13 +1,12 @@
-<div class="spacer"><h1>Welcome, <%=@user.first_name%>!</h1></div>
+<div class="spacer"><h1 style='color: rgb(15, 208, 95)'>Welcome, <%=@user.first_name%>!</h1></div>
 
-<div class='profile-box'>
-<h2>Profile Information</h2>
+<h2 style="padding-left: 10px; padding-bottom: 10px">Profile Information</h2>
 <fieldset>
 <legend><font size='5'>Biographic</font></legend>
 <div class="facts"><p><b><font size='4'>First Name: </font></b> <%=@user.first_name %></p>
 <p><b><font size='4'>Last Name: </font></b> <%=@user.last_name %></p>
 <p><b><font size='4'>Email Address: </font></b> <%=@user.email %></p>
-</div>
+
 </fieldset>
 <br>
 
@@ -15,20 +14,29 @@
 <legend><font size='5'>TagLine Deets</font></legend>
 <div class="facts"><p><b><font size='4'>User Name: </font></b> <%=@user.user_name %></p>
 <p><b><font size='4'>Fave Book: </font></b> 
-  <% if !@user.fave_book %>
-    <%=link_to @user.fave_book, book_path(Book.find_by(title: @user.fave_book)) %></p>
-  <% else %>
-    Alas, you have yet to pick one.</p>
+  <% if !@user.fave_book.empty? %>
+    <% if Book.find_by(title: @user.fave_book) %>
+      <%=link_to @user.fave_book, book_path(Book.find_by(title: @user.fave_book)) %></p>
+    <% else %>
+      <%= @user.fave_book %>
     <% end %>
+  <% else %>
+    Alas, you have yet to pick one. </p>
+<%end %>
+
     <p><b><font size='4'>Fave Movie: </font></b> 
-  <% if @user.fave_movie %>
-    <%=link_to @user.fave_movie, movie_path(Movie.find_by(title: @user.fave_movie) %></p>
-  <% else %>
-    No favorite movie designated yet.</p>
+  <% if !@user.fave_movie.empty? %>
+    <% if Movie.find_by(title: @user.fave_movie) %>
+      <%=link_to @user.fave_movie, movie_path(Movie.find_by(title: @user.fave_movie)) %></p>
+    <% else %>
+    <%= @user.fave_movie %></p>
     <% end %>
+  <% else %>
+    Alas, you have yet to pick one. </p>
+  <% end %>
 
     <p><b><font size='4'>See your Fave Quotes: </font></b> 
-    <%= link_to "My Favorite Quotes", user_quotes_path, method: :get %></p>
+    <u><%= link_to "My Favorite Quotes", user_quotes_path, method: :get %></u></p>
   <%= button_to 'Edit your Info', edit_user_path(@user), {:method=>'get'} %>
   <%=button_to "LOGOUT", '/logout', method: :delete %>
   </div>

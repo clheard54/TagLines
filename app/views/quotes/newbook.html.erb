@@ -32,8 +32,11 @@
     <p><%=f.text_area :notes %></p>
 
     <label><font size='4'>Any Tags?</font></label>
-    <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-
+    <%=f.fields_for :tags do |ff| %>
+        <p><%=ff.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
+        <% end %>
+    </fieldset><br>
+    
     &emsp;&emsp;<%= f.submit "Create!" %>
 </div>
 <% end %>

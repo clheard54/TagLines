@@ -4,7 +4,7 @@
     <p>You have no favorite quotes yet. :o( </p><br>
     (But you could - and should - change that!)
     <br>
-    <%=button_to "Add a Quote!", quotes_new_path %>
+    <%=button_to "Add a Quote!", quotes_new_path, :method=>'get' %>
 <% else %>
     <ol>
     <%= @quotes.each do |quote| %>

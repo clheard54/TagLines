@@ -31,10 +31,12 @@
     <label>Any other Notes to Add?</label>
     <p><%=f.text_area :notes %></p>
 
-    <label>Any Tags?</label>
-    <p><%=f.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-</div>
-</fieldset>
+    <label><font size='4'>Any Tags?</font></label>
+    <%=f.fields_for :quote_tags do |ff| %>
+        <p><%=ff.collection_check_boxes :tag_id, Tag.all, :id, :name %></p>
+    <%= f.hidden_field :user_id, value=current_user.id %>
+        <% end %>
+    </fieldset><br>
     &emsp;&emsp;<%= f.submit "Create!" %>
 
 <% end %>
