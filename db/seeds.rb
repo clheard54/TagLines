@@ -62,15 +62,11 @@ Movie.create(title: "Gladiator", director: "Ron Howard", cast_members: "Russell 
 
 Movie.create(title: "Gone with the Wind", director: "Victor Fleming", cast_members: "Clark Gable, Vivian Leigh")
 
-# User.create(first_name: "Isabelle", last_name: "Fenn", user_name: 'if', email: "isabelle@gmail.com", password: 'lastresort09', fave_book: "Whisperer", fave_movie: 'The Intja')
-# User.create(first_name: "Emma", last_name: "Gross", user_name: "gro$$", email: "emmajg@yahoo.com", password: "BrownLedge555", fave_book: '', fave_movie:'')
-# User.create(first_name: "Caroline", last_name: "Gilman", user_name: "carol555", email: "gilman54@aol.com", password: "yoyoyoyoyo", fave_book: '', fave_movie: '')
-# User.create(first_name: "Jenny", last_name: "Aguiar", user_name: "jaguar", email: "jag324@gmail.com", password: "324club", fave_book: '', fave_movie: '')
-
 Tag.create(name: "Sweet")
 Tag.create(name: "Wicked")
 Tag.create(name: "Love")
-Tag.create(name: "NoHate")
+Tag.create(name: "Yaaaas Gaga")
 Tag.create(name: "Crying")
 Tag.create(name: "Dying")
 Tag.create(name: "Best ever")
+Tag.create(name: "Hopeful")

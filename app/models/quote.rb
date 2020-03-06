@@ -3,7 +3,7 @@ class Quote < ApplicationRecord
     has_many :tags, through: :quote_tags
     belongs_to :user
     belongs_to :book, optional: true
-    belongs_to :movie, optional:true
+    belongs_to :movie, optional: true
     validates :quote, presence:true
     accepts_nested_attributes_for :book
     accepts_nested_attributes_for :movie
