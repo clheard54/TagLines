@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :current_user, only: [:show, :edit, :udpate, :destroy]
-  skip_before_action :authorized, only: [:index]
+  before_action :current_user, only: [:edit, :udpate, :destroy]
+  skip_before_action :authorized, only: [:index, :new, :create]
 
   def index 
     @books = Book.all
@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(book_params)
+    redirect_to @book
   end
 
   def show
@@ -40,7 +41,7 @@ class BooksController < ApplicationController
 
 private
   def book_params
-    params.require(:book).permit(:title, :author, :synopsis)
+    params.require(:book).permit(:book, :title, :author, :synopsis, :quotes_attributes => [:quote, :notes, :user_id, :book_id])
   end
   
 end

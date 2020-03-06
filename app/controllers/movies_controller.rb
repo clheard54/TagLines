@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
-  before_action :current_user, only: [:show, :edit, :udpate, :destroy]
-  skip_before_action :authorized, only: [:index]
+  before_action :current_user, only: [:new, :edit, :udpate, :destroy]
+  skip_before_action :authorized, only: [:index, :create]
   
   def index
     @movies = Movie.all
@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
+    redirect_to @movie
   end
 
   def show

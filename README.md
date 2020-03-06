@@ -40,7 +40,7 @@ When you first enter the site, you will be asked to sign up or login. On your fi
 
 <b>Profile Page for Returning User:</b>
 <br />
-<img style="align: center;" src="./images/profile.png" width="600">
+<img src="./images/profile.png" width="600">
 <br><br>
 <b>List of Quotes:</b>
 <br />
@@ -61,12 +61,12 @@ Two bits of code that were fun/challenging to write -- and which I'd still like 
 <br />
 Depending on the selection, they were directed to two different versions of the "New Quote" form.
 <br />
-<img src="./images/codesnip1.png" width="500">
+<img src="./images/codesnip2.png" width="500">
 <br />
 2. Slightly more satisfying was my solution to filtering quotations by tag. Writing a class method for Quotes - that would redefine/limit @quotes based on the selected tag - allowed me to render the same index page no matter whether there was a filter or not.
 <br />
 <img src="./images/code3.png" width="500">
-<br />>
+<br />
 
 ## Credits
 

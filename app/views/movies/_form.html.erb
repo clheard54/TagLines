@@ -1,4 +1,4 @@
-<div class="spacer"><h1>Enter a Quotation</h1></div>
+
 <%= form_for @movie do |f| %>
     <p><%=f.label :title %>
     <%=f.text_field :title %></p>
@@ -12,21 +12,9 @@
     <p><%=f.label :cast_members %>
     <%=f.text_field :cast_members %><br></p><br>
 
-    <fieldset>
-    <legend><font size='4'>Have a Favorite Quote to Add?</font></legend>
-    <div class="facts">
-    <%=f.fields_for :quote do |ff| %>
-        <p><font size='3'><b><%=ff.label :quote %></b>
-        <%=ff.text_field :quote %></p>
-
-        <p><font size='3'><b><%=ff.label :notes %></b></font>
-        <%=ff.text_field :notes %></p>
-        <% end %>
-    </fieldset><br>
+ 
     
-    <%= hidden_field value=sessions[user_id] %>
-
-    <%f.submit "Create!" %>
+    <%=f.submit "Submit!" %>
 </div>
 <br>
 <% end %>

@@ -27,6 +27,7 @@
     <% lines = Quote.where(book_id: @book.id) %>
     <% if !lines.empty? %>
         <% sample = lines.take(5) %>
+        <br><br>
         Some other folks' favorites:
     <ul>
         <% sample.each do |quote| %>
