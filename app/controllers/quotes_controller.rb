@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-    before_action :authorized, only: [:new1, :add, :create2, :edit]
+    before_action :authorized, only: [:new1, :add, :create2, :user_qutoes, :edit]
 
   def index
     @quotes = Quote.filter(params[:search_tag])
@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
   end
 
   def user_quotes
-    @quotes = Quote.find_by(user_id: @user.id)
+    @quotes = Quote.find_by(user_id: current_user.id)
   end
 
   def new1
@@ -32,15 +32,21 @@ class QuotesController < ApplicationController
   def create2
     @quote = Quote.new
     @quote.user_id = current_user.id
+    @quote.notes = params[:quote][:notes]
     if !!params[:quote][:book_id]
       @quote.book_id = params[:quote][:book_id]
     elsif !!params[:quote][:movie_id]
       @quote.movie_id = params[:quote][:movie_id]
     end
     @quote.quote = params[:quote][:quote]
-    if QuoteTag.find_by(tag_id: params[:search_tag])
-      @quote.tags << QuoteTag.find_by(tag_id: params[:search_tag])
-    end
+    @quote.save
+    Tag.all.each {|tag|
+    byebug
+      if params[:quote][:quote_tags][:tag_ids].include?(tag.id.to_s)
+        @quote.tags << tag
+        QuoteTag.create(quote_id: @quote.id, tag_id: tag.id)
+      end
+    }
     @quote.save
     redirect_to quotes_path
   end

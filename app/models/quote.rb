@@ -32,10 +32,10 @@ class Quote < ApplicationRecord
         end
     end
 
-    def self.filter(search)
+    def self.filter(search_tag)
         result = []
-        if search
-            tag = Tag.find(search)
+        if search_tag
+            tag = Tag.find(search_tag)
             if tag
               self.all.each {|quote|
                 if quote.tags.include?(tag)
