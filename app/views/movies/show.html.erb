@@ -6,9 +6,9 @@
 <b><font size='4'>Author: </font></b> <%=@movie.director%><br><br>
 <b><font size='4'>Synopsis: </font></b>
 <p>&emsp; <%=@movie.synopsis%></p>
+<%= button_to "Change/Edit/Update", {:controller => "movies", :action => "edit", :movie_id => @movie.id} , :method => :get %>
 </fieldset>
 <br>
-</div>
 
 <fieldset>
 <legend><font size='5'>Quality Quotes</font></legend>
@@ -24,16 +24,17 @@
     <br>
     <% end %>
 
-<% lines = Quote.where(movie_id: @movie.id) %>
-<% if !lines.empty? %>
-    <% sample = lines.take(5) %>
-    Some other folks' favorites:
-<ul>
-    <% sample.each do |quote| %>
-    <%= quote.quote %>
-    <% end %>
-    </ul>
-<%end%>
-</div>
+    <% lines = Quote.where(movie_id: @movie.id) %>
+    <% if !lines.empty? %>
+        <% sample = lines.take(5) %>
+        Some other folks' favorites:
+    <ul>
+        <% sample.each do |quote| %>
+        <%= quote.quote %>
+        <% end %>
+        </ul>
+    <%end%>
+    </div>
 </fieldset>
+</div>
 

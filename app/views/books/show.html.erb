@@ -6,9 +6,9 @@
 <b><font size='4'>Author: </font></b> <%=@book.author%><br><br>
 <b><font size='4'>Synopsis: </font></b>
 <p>&emsp; <%=@book.synopsis%></p>
+<%= button_to "Change/Edit/Update", {:controller => "books", :action => "edit", :book_id => @book.id} , :method => :get %>
 </fieldset>
 <br>
-</div>
 
 <fieldset>
 <legend><font size='5'>Quality Quotes</font></legend>
@@ -20,7 +20,7 @@
     <% elsif @user.books.include?(@book) %>
         <% favorite_line = Quote.find_by(user_id: @user, book_id: @book.id) %>
         <p>&emsp;<%= favorite_line %></p> <br>
-        <%= button_to "Change/Edit/Update", 'quotes/edit/#{@book.id}' %>
+        <%= button_to "Change/Edit/Update", `quotes/#{@favorite_line.id}/edit` %>
     <br>
     <% end %>
 
@@ -37,4 +37,5 @@
     <%end%>
     </div>
 </fieldset>
+</div>
 

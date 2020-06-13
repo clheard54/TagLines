@@ -3,7 +3,12 @@ class QuotesController < ApplicationController
   
 
   def index
-    @quotes = Quote.filter(params[:search_tag])
+    if !params[:search_tag] || params[:search_tag]==''
+      @quotes = Quote.all
+    else
+      @quotes = Quote.filter(params[:search_tag])
+    end
+    @quotes
     render :layout => "allquotes"
   end
 

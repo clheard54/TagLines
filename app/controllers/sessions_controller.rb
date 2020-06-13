@@ -17,6 +17,9 @@ class SessionsController < ApplicationController
       elsif !user
         flash[:notice] = "That username does not exist yet."
         redirect_to '/'
+      elsif user.errors.full_messages == []
+        flash[:notice] = "Uh-oh, something went wrong. Please try again.\n"
+        redirect_to login_path
       else
         flash[:notice] = user.errors.full_messages
         redirect_to login_path

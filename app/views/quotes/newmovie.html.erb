@@ -10,17 +10,18 @@
     <br>
     <fieldset>
     <legend><font size='4'>Need to Add a New Movie?</font></legend>
-    <div class="facts"><%=f.fields_for :movie do |ff| %>
-        <p><font size='3'><b><%=ff.label :title %></b>
-        <%=ff.text_field :title %></p>
+    # <div class="facts"><%=f.fields_for :movie do |ff| %>
+    #     <p><font size='3'><b><%=ff.label :title %></b>
+    #     <%=ff.text_field :title %></p>
 
-        <p><font size='3'><b><%=ff.label :director %></b></font>
-        <%=ff.text_field :director %></p>
+    #     <p><font size='3'><b><%=ff.label :director %></b></font>
+    #     <%=ff.text_field :director %></p>
 
-        <p><font size='3'><b><%=ff.label :cast_members %></b></font>
-        <%=ff.text_area :cast_members %></p>
-        <% end %>
-        </div>
+    #     <p><font size='3'><b><%=ff.label :cast_members %></b></font>
+    #     <%=ff.text_area :cast_members %></p>
+    #     <% end %>
+    #     </div>
+    <%= render '../movies/form' %>
     </fieldset><br>
 
     <fieldset>
@@ -34,7 +35,7 @@
     <label><font size='4'>Any Tags?</font></label>
     <%=f.fields_for :quote_tags do |ff| %>
         <p><%=ff.collection_check_boxes :tag_ids, Tag.all, :id, :name %></p>
-        <%= ff.hidden_field :user_id => current_user.id %>
+        <%= ff.hidden_field :user_id %><%current_user.id %>
         <% end %>
     </fieldset><br>
     &emsp;&emsp;<%= f.submit "Create!" %>

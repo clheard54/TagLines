@@ -6,7 +6,7 @@
     <%=button_to "Add a Quote!", quotes_new_path, :method=>'get' %>
 <% else %>
     <% current_user.quotes.each do |quote| %>
-        <li><span class="quotetext"><%=quote.quote%>."</span><br>
+        <li><span class="quotetext">" <%=quote.quote%>."</span><br>
         <% if !!quote.book_id %>
         &emsp;&emsp;&emsp;-- <span class="cite"><%= Book.find(quote.book_id).title%></span>
         <% elsif !!quote.movie_id %>
@@ -16,4 +16,7 @@
         <br>
     <% end %>
     <br>
+    <fieldset>
+<%=button_to "Add a Quote!", quotes_new_path, :method=>'get' %>
+</fieldset>
 <%end%>
